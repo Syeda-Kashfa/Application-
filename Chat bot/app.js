@@ -3,14 +3,21 @@ let btn = document.getElementById("send");
 let chat = document.getElementById("chat");
 
 
+let nowDate=new Date();
+let day=nowDate.getDate()
+//console.log(day);
+let month=nowDate.getMonth()+1;
+let year=nowDate.getFullYear()
+
 function chatBot() {
     //chat.innerText=input.value
 
     let userMsg = input.value.trim();
     if (userMsg == "") return;
-
+ chat.innerHTML+=`<span id="ChatTime">${day}-${month}-${year}</span>`
     chat.innerHTML += `<p class="cht">You:${userMsg}</p>`;
     chat.className = "cht"
+   
 
     let typing = document.createElement("div");
     typing.id = "typing";
@@ -137,4 +144,7 @@ let displayTime = () => {
 setInterval(displayTime, 1000);
 
 displayTime()
+
+
+
 
